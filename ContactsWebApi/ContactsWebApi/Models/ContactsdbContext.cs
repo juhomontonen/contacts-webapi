@@ -10,6 +10,6 @@ namespace ContactsWebApi.Models
     {
         public ContactsdbContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Contact>    Contacts { get; set; }
     }
 }
