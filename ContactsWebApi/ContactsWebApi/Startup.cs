@@ -33,6 +33,9 @@ namespace ContactsWebApi
             {
                 options.UseSqlServer(Configuration["LocalDbConnection"]);
             });
+            services.AddCors(options => options.AddPolicy("AllowAnyPolicy",
+                builder => { builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(); }));
+
             services.AddMvc();
         }
 
@@ -43,6 +46,8 @@ namespace ContactsWebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("AllowAnyPolicy");
 
             app.UseMvc();
         }
