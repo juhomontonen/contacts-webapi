@@ -31,7 +31,7 @@ namespace ContactsWebApi
             services.AddScoped<IContactRepository, ContactRepository>();
             services.AddDbContext<ContactsdbContext>(options =>
             {
-                options.UseSqlServer(Configuration["LocalDbConnection"]);
+                options.UseSqlServer(Configuration["ContactsdbAdminConnection"]);
             });
             services.AddCors(options => options.AddPolicy("AllowAnyPolicy",
                 builder => { builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(); }));
